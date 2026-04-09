@@ -185,6 +185,80 @@ tr.sh-row td{color:var(--text3);font-size:11px;font-family:var(--mono);}
 #toast.show{transform:translateY(0);opacity:1;}
 #toast i{color:var(--green);flex-shrink:0;}#toast.err i{color:var(--pink2);}
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:90;}.overlay.show{display:block;}
+
+/* INVENTORY */
+.inv-tabs{display:flex;gap:6px;margin-bottom:16px;overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch;}
+.inv-tab{display:flex;align-items:center;gap:6px;padding:9px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);cursor:pointer;color:var(--text2);font-size:12px;font-weight:600;white-space:nowrap;transition:all var(--tr);-webkit-tap-highlight-color:transparent;}
+.inv-tab i{font-size:12px;}
+.inv-tab.active{background:var(--pd);border-color:var(--pg);color:var(--pink2);}
+.inv-tab.active i{color:var(--pink);}
+.inv-section{display:none;}.inv-section.active{display:block;}
+.stock-summary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px;}
+.stock-sum-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:14px 16px;position:relative;overflow:hidden;}
+.stock-sum-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--pink);}
+.ssl{font-size:10px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-family:var(--mono);}
+.ssv{font-family:var(--mono);font-size:19px;font-weight:700;color:var(--text);line-height:1;}
+.ssv.pink{color:var(--pink2);}.ssv.green{color:var(--green);}.ssv.amber{color:#f59e0b;}
+.view-toggle{display:flex;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
+.vtog{padding:7px 14px;font-size:12px;font-weight:600;color:var(--text2);cursor:pointer;transition:all var(--tr);-webkit-tap-highlight-color:transparent;}
+.vtog.active{background:var(--pink);color:#fff;}
+.prod-stock-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:14px 16px;margin-bottom:10px;transition:border-color var(--tr);}
+.prod-stock-card.low-stock{border-color:rgba(245,158,11,0.4);background:rgba(245,158,11,0.04);}
+.prod-stock-card.out-stock{border-color:rgba(225,29,72,0.3);background:rgba(225,29,72,0.04);}
+.psc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.psc-name{font-size:14px;font-weight:600;color:var(--text);}
+.psc-badge{font-family:var(--mono);font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;}
+.psc-badge.in{background:rgba(34,197,94,0.15);color:var(--green);border:1px solid rgba(34,197,94,0.3);}
+.psc-badge.low{background:rgba(245,158,11,0.15);color:#f59e0b;border:1px solid rgba(245,158,11,0.3);}
+.psc-badge.out{background:rgba(225,29,72,0.15);color:var(--pink2);border:1px solid rgba(225,29,72,0.3);}
+.psc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.psc-stat .lbl{font-family:var(--mono);font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;}
+.psc-stat .val{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--text);}
+.psc-stat .val.pink{color:var(--pink2);}.psc-stat .val.green{color:var(--green);}
+.psc-profit-bar{margin-top:10px;height:4px;background:var(--bg4);border-radius:2px;overflow:hidden;}
+.psc-profit-fill{height:100%;background:var(--green);border-radius:2px;transition:width 0.4s;}
+.payment-methods{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.pm-btn{display:flex;align-items:center;gap:7px;padding:11px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);cursor:pointer;color:var(--text2);font-size:13px;font-weight:500;transition:all var(--tr);-webkit-tap-highlight-color:transparent;}
+.pm-btn i{font-size:13px;}
+.pm-btn:hover{background:var(--bg4);border-color:var(--border2);}
+.pm-btn.active{background:var(--pd);border-color:var(--pg);color:var(--pink2);}
+.pm-btn.active i{color:var(--pink);}
+.sale-item{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;margin-bottom:8px;transition:all var(--tr);}
+.sale-item:hover{border-color:var(--border2);background:var(--bg4);}
+.sale-item-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;}
+.sale-pname{font-size:13px;font-weight:600;color:var(--text);}
+.sale-amount{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--green);}
+.sale-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.sale-tag{font-size:11px;font-family:var(--mono);color:var(--text3);}
+.pm-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;font-family:var(--mono);}
+.pm-pill.momo{background:rgba(34,197,94,0.15);color:var(--green);}
+.pm-pill.bank{background:rgba(55,138,221,0.15);color:#60a5fa;}
+.pm-pill.cash{background:rgba(245,158,11,0.15);color:#f59e0b;}
+.pm-pill.credit{background:rgba(225,29,72,0.12);color:var(--pink2);}
+.sale-profit-tag{font-size:11px;font-family:var(--mono);color:var(--green);}
+.sale-profit-tag.loss{color:var(--pink2);}
+.sale-del{background:none;border:none;color:var(--text3);cursor:pointer;font-size:12px;padding:3px 5px;transition:color var(--tr);}
+.sale-del:hover{color:var(--pink2);}
+.fin-section{margin-bottom:16px;}
+.fin-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:16px;margin-bottom:10px;}
+.fin-card h4{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;display:flex;align-items:center;gap:7px;}
+.fin-card h4 i{color:var(--pink);}
+.fin-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text2);}
+.fin-row:last-child{border-bottom:none;}
+.fin-row.total{font-family:var(--mono);font-size:16px;font-weight:700;color:var(--text);border-top:2px solid var(--border2);border-bottom:none;padding-top:10px;margin-top:4px;}
+.fin-row.total span:last-child{color:var(--pink2);}
+.fin-row.profit-row span:last-child{color:var(--green);font-family:var(--mono);font-weight:700;}
+.fin-row.profit-row.loss span:last-child{color:var(--pink2);}
+.pm-bar-wrap{margin-top:10px;}
+.pm-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:7px;font-size:12px;}
+.pm-bar-label{width:100px;color:var(--text2);font-family:var(--mono);font-size:11px;}
+.pm-bar-track{flex:1;height:6px;background:var(--bg4);border-radius:3px;overflow:hidden;}
+.pm-bar-fill{height:100%;border-radius:3px;transition:width 0.4s;}
+.pm-bar-fill.momo{background:var(--green);}
+.pm-bar-fill.bank{background:#60a5fa;}
+.pm-bar-fill.cash{background:#f59e0b;}
+.pm-bar-fill.credit{background:var(--pink2);}
+.pm-bar-amt{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--text);min-width:70px;text-align:right;}
 ::-webkit-scrollbar{width:4px;height:4px;}::-webkit-scrollbar-track{background:transparent;}::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:2px;}
 @media(max-width:768px){
   .sidebar{position:fixed;top:0;left:0;height:100%;transform:translateX(-100%);}
@@ -233,6 +307,7 @@ tr.sh-row td{color:var(--text3);font-size:11px;font-family:var(--mono);}
       <div class="nav-item active" onclick="showPage('dashboard')"><i class="fas fa-chart-line"></i> Dashboard</div>
       <div class="nav-item" onclick="showPage('new-purchase')"><i class="fas fa-plus-circle"></i> New Purchase</div>
       <div class="nav-item" onclick="showPage('all-records')"><i class="fas fa-table"></i> All Records</div>
+      <div class="nav-item" onclick="showPage('inventory')"><i class="fas fa-boxes"></i> Inventory</div>
       <div class="nav-item" onclick="showPage('settings')"><i class="fas fa-sliders-h"></i> Settings</div>
     </nav>
     <div class="sidebar-footer"><span>v4.0 &bull; PWA</span><div class="lock-btn" onclick="lockApp()"><i class="fas fa-lock"></i> Lock</div></div>
@@ -324,6 +399,95 @@ tr.sh-row td{color:var(--text3);font-size:11px;font-family:var(--mono);}
         </table></div></div>
       </div>
 
+
+      <!-- INVENTORY & SALES -->
+      <div class="page" id="page-inventory">
+
+        <!-- Sub-tabs -->
+        <div class="inv-tabs">
+          <div class="inv-tab active" id="itab-stock" onclick="invTab('stock')"><i class="fas fa-boxes"></i> Stock</div>
+          <div class="inv-tab" id="itab-sell" onclick="invTab('sell')"><i class="fas fa-cash-register"></i> Record Sale</div>
+          <div class="inv-tab" id="itab-sales" onclick="invTab('sales')"><i class="fas fa-list"></i> Sales History</div>
+          <div class="inv-tab" id="itab-finance" onclick="invTab('finance')"><i class="fas fa-chart-pie"></i> Finance</div>
+        </div>
+
+        <!-- STOCK VIEW -->
+        <div class="inv-section active" id="isec-stock">
+          <!-- Summary bar -->
+          <div class="stock-summary-grid" id="stock-summary-grid"></div>
+          <!-- Combined view toggle -->
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <div class="section-title">Products</div>
+            <div class="view-toggle">
+              <div class="vtog active" id="vtog-individual" onclick="stockView('individual')">Individual</div>
+              <div class="vtog" id="vtog-combined" onclick="stockView('combined')">Combined</div>
+            </div>
+          </div>
+          <div id="stock-individual"></div>
+          <div id="stock-combined" style="display:none;"></div>
+        </div>
+
+        <!-- RECORD SALE -->
+        <div class="inv-section" id="isec-sell">
+          <form id="sale-form" onsubmit="recordSale(event)">
+            <div class="form-grid">
+              <div class="form-group"><label>Date</label><input type="date" id="s-date" required></div>
+              <div class="form-group"><label>Product</label>
+                <select id="s-product" onchange="onProductSelect()" required>
+                  <option value="">-- Select product --</option>
+                </select>
+              </div>
+              <div class="form-group"><label>In Stock</label>
+                <input type="text" id="s-instock" readonly style="color:var(--pink2);font-family:var(--mono);font-weight:700;" placeholder="Select product first">
+              </div>
+              <div class="form-group"><label>Cost / Unit</label>
+                <input type="text" id="s-costunit" readonly style="color:var(--text2);font-family:var(--mono);" placeholder="Auto-filled">
+              </div>
+              <div class="form-group"><label>Qty Sold</label>
+                <input type="number" id="s-qty" min="1" value="1" inputmode="numeric" required oninput="calcSalePreview()">
+              </div>
+              <div class="form-group"><label>Selling Price / Unit</label>
+                <input type="number" id="s-price" step="0.01" placeholder="0.00" inputmode="decimal" required oninput="calcSalePreview()">
+              </div>
+              <div class="form-group span2"><label>Payment Method</label>
+                <div class="payment-methods">
+                  <div class="pm-btn active" id="pm-momo" onclick="selectPM('momo')"><i class="fas fa-mobile-alt"></i> Mobile Money</div>
+                  <div class="pm-btn" id="pm-bank" onclick="selectPM('bank')"><i class="fas fa-university"></i> Bank Transfer</div>
+                  <div class="pm-btn" id="pm-cash" onclick="selectPM('cash')"><i class="fas fa-money-bill-wave"></i> Cash</div>
+                  <div class="pm-btn" id="pm-credit" onclick="selectPM('credit')"><i class="fas fa-hand-holding-usd"></i> Credit</div>
+                </div>
+              </div>
+              <div class="form-group span2"><label>Notes (optional)</label>
+                <input type="text" id="s-notes" placeholder="e.g. customer name, order ref...">
+              </div>
+            </div>
+            <!-- Sale preview -->
+            <div class="cost-preview" id="sale-preview">
+              <div class="prev-stitle">Sale Summary</div>
+              <div class="prev-row"><span>Qty Sold</span><span class="val" id="sp-qty">0</span></div>
+              <div class="prev-row"><span>Selling Price / Unit</span><span class="val" id="sp-price">₵0.00</span></div>
+              <div class="prev-row"><span>Total Revenue</span><span class="val" id="sp-revenue">₵0.00</span></div>
+              <div class="prev-row"><span>Cost of Goods (total)</span><span class="val" id="sp-cogs">₵0.00</span></div>
+              <div class="prev-row total-row"><span>PROFIT</span><span class="val" id="sp-profit">₵0.00</span></div>
+              <div class="prev-row" style="padding-top:6px;"><span style="font-size:12px;color:var(--text3);">Profit Margin</span><span class="val" style="font-size:12px;" id="sp-margin">0%</span></div>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Record Sale</button>
+            <div style="height:40px;"></div>
+          </form>
+        </div>
+
+        <!-- SALES HISTORY -->
+        <div class="inv-section" id="isec-sales">
+          <div class="search-bar"><i class="fas fa-search"></i><input type="text" id="sale-search" placeholder="Search product or notes..." oninput="filterSales()"></div>
+          <div id="sales-list"></div>
+        </div>
+
+        <!-- FINANCE SUMMARY -->
+        <div class="inv-section" id="isec-finance">
+          <div id="finance-content"></div>
+        </div>
+
+      </div>
       <!-- SETTINGS -->
       <div class="page" id="page-settings">
         <div style="max-width:520px;">
@@ -400,10 +564,10 @@ tr.sh-row td{color:var(--text3);font-size:11px;font-family:var(--mono);}
 })();
 
 // STATE
-const SK='track4me_v4',PK='track4me_pin',FK='track4me_font';
+const SK='track4me_v4',SSK='track4me_sales_v1',PK='track4me_pin',FK='track4me_font';
 const SYMS={GHS:'₵',USD:'$',EUR:'€',GBP:'£',CNY:'¥'};
-const PTITLES={dashboard:'Dashboard','new-purchase':'New Purchase','all-records':'All Records',settings:'Settings'};
-let shipments=[],curSym='₵',viewId=null,pinBuf='',pRowCount=0;
+const PTITLES={dashboard:'Dashboard','new-purchase':'New Purchase','all-records':'All Records',inventory:'Inventory & Sales',settings:'Settings'};
+let shipments=[],sales=[],curSym='₵',viewId=null,pinBuf='',pRowCount=0,curPM='momo',curStockView='individual';
 let deferredInstall=null;
 
 // INSTALL
@@ -436,6 +600,7 @@ function changePin(){
 // INIT
 function init(){
   const s=localStorage.getItem(SK);if(s)shipments=JSON.parse(s);
+  const ss=localStorage.getItem(SSK);if(ss)sales=JSON.parse(ss);
   document.getElementById('f-date').valueAsDate=new Date();
   applyFont();initProductRows();renderDashboard();renderRecords(shipments);updateOnline();
 }
@@ -450,6 +615,7 @@ function showPage(id){
   document.getElementById('page-title').textContent=PTITLES[id]||id;
   if(id==='all-records')renderRecords(shipments);
   if(id==='dashboard')renderDashboard();
+  if(id==='inventory'){renderStock();renderSalesHistory();renderFinance();populateProductSelect();}
   closeSidebar();document.getElementById('content').scrollTop=0;
 }
 function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('show');}
@@ -462,6 +628,7 @@ function fmtD(d){if(!d)return'';const p=d.split('-');return`${p[2]}.${p[1]}.${p[
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function nv(id){return parseFloat(document.getElementById(id).value)||0;}
 function save(){localStorage.setItem(SK,JSON.stringify(shipments));}
+function saveSales(){localStorage.setItem(SSK,JSON.stringify(sales));}
 
 // PRODUCT ROWS
 function initProductRows(){pRowCount=0;document.getElementById('product-rows').innerHTML='';addProductRow();}
@@ -644,13 +811,23 @@ function exportCSV(){
   a.href=url;
   a.download='Track4Me_Master.csv'; // fixed name = always replaces old file
   a.click();URL.revokeObjectURL(url);
-  toast(`Master CSV: ${rows.length} rows exported!`);
+  // Also append sales sheet
+  let salesRows=[];
+  sales.forEach(s=>{
+    salesRows.push([fmtD(s.date),`"${s.product}"`,s.qty,(s.sellingPrice||0).toFixed(2),(s.revenue||0).toFixed(2),(s.cogs||0).toFixed(2),(s.profit||0).toFixed(2),s.pm||'',`"${s.notes||''}"`].join(','));
+  });
+  const salesHdr='\n\nSALES DATA\nDate,Product,Qty Sold,Price/Unit,Total Revenue,Cost of Goods,Profit,Payment Method,Notes\n';
+  const finalBlob=new Blob([hdr+rows.join('\n')+salesHdr+salesRows.join('\n')],{type:'text/csv'});
+  const finalUrl=URL.createObjectURL(finalBlob);
+  const a2=document.createElement('a');a2.href=finalUrl;a2.download='Track4Me_Master.csv';a2.click();URL.revokeObjectURL(finalUrl);
+  toast(`Master CSV: ${rows.length} import rows + ${salesRows.length} sale rows!`);
 }
 
 // CLEAR
 function clearAllData(){
-  if(!confirm('Delete ALL shipments permanently? Cannot be undone.'))return;
-  shipments=[];localStorage.removeItem(SK);renderDashboard();renderRecords([]);toast('All data cleared.',true);
+  if(!confirm('Delete ALL data (shipments + sales) permanently? Cannot be undone.'))return;
+  shipments=[];sales=[];localStorage.removeItem(SK);localStorage.removeItem(SSK);
+  renderDashboard();renderRecords([]);toast('All data cleared.',true);
 }
 
 // FONT SIZE
@@ -660,6 +837,313 @@ function applyFont(){const s=localStorage.getItem(FK);if(!s)return;document.docu
 // TOAST
 let tt;
 function toast(msg,isErr){const el=document.getElementById('toast');el.querySelector('i').className=isErr?'fas fa-exclamation-circle':'fas fa-check-circle';document.getElementById('toast-msg').innerHTML=msg;el.classList.toggle('err',!!isErr);el.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),2800);}
+
+
+// ═══════════════════════════════════════════════
+// INVENTORY & SALES
+// ═══════════════════════════════════════════════
+
+// ── Tab switching ──
+function invTab(tab){
+  document.querySelectorAll('.inv-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.inv-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('itab-'+tab).classList.add('active');
+  document.getElementById('isec-'+tab).classList.add('active');
+  if(tab==='sell'){populateProductSelect();document.getElementById('s-date').valueAsDate=new Date();}
+  if(tab==='sales')renderSalesHistory();
+  if(tab==='finance')renderFinance();
+  if(tab==='stock')renderStock();
+}
+
+// ── Stock view toggle ──
+function stockView(v){
+  curStockView=v;
+  document.getElementById('vtog-individual').classList.toggle('active',v==='individual');
+  document.getElementById('vtog-combined').classList.toggle('active',v==='combined');
+  document.getElementById('stock-individual').style.display=v==='individual'?'block':'none';
+  document.getElementById('stock-combined').style.display=v==='combined'?'block':'none';
+}
+
+// ── Build product stock map from shipments + sales ──
+function buildStockMap(){
+  const map={};
+  // Add stock from shipments
+  shipments.forEach(sh=>{
+    if(!sh.products)return;
+    sh.products.forEach(p=>{
+      const key=p.name.trim().toLowerCase();
+      if(!map[key]){map[key]={name:p.name,imported:0,sold:0,costPerUnit:0,totalCost:0,currency:sh.symbol||'₵'};}
+      map[key].imported+=p.qty;
+      map[key].totalCost+=(p.lineTotal||p.cost||0);
+      // weighted average cost per unit
+      map[key].costPerUnit=map[key].totalCost/map[key].imported;
+      map[key].currency=sh.symbol||'₵';
+    });
+  });
+  // Deduct sales
+  sales.forEach(s=>{
+    const key=s.product.trim().toLowerCase();
+    if(map[key]){map[key].sold+=(s.qty||0);}
+  });
+  // Add remaining
+  Object.values(map).forEach(p=>{p.remaining=Math.max(0,p.imported-p.sold);});
+  return map;
+}
+
+// ── Render stock ──
+function renderStock(){
+  const map=buildStockMap();
+  const prods=Object.values(map);
+  const totalImported=prods.reduce((s,p)=>s+p.imported,0);
+  const totalSold=prods.reduce((s,p)=>s+p.sold,0);
+  const totalRemaining=prods.reduce((s,p)=>s+p.remaining,0);
+  const totalRevenue=sales.reduce((s,sl)=>s+(sl.revenue||0),0);
+
+  // Summary cards
+  document.getElementById('stock-summary-grid').innerHTML=`
+    <div class="stock-sum-card"><div class="ssl">Total Imported</div><div class="ssv">${totalImported}</div></div>
+    <div class="stock-sum-card"><div class="ssl">Total Sold</div><div class="ssv green">${totalSold}</div></div>
+    <div class="stock-sum-card"><div class="ssl">In Stock</div><div class="ssv ${totalRemaining===0?'pink':'amber'}">${totalRemaining}</div></div>
+    <div class="stock-sum-card"><div class="ssl">Total Revenue</div><div class="ssv pink">₵${totalRevenue.toFixed(2)}</div></div>
+  `;
+
+  // Individual view
+  const indiv=document.getElementById('stock-individual');
+  if(!prods.length){
+    indiv.innerHTML='<div class="empty-state"><i class="fas fa-box-open"></i><p>No products yet.<br>Add a shipment first.</p></div>';
+  }else{
+    // Get profit per product
+    const profitMap={};
+    sales.forEach(sl=>{
+      const k=sl.product.trim().toLowerCase();
+      if(!profitMap[k])profitMap[k]={revenue:0,cogs:0};
+      profitMap[k].revenue+=(sl.revenue||0);
+      profitMap[k].cogs+=(sl.cogs||0);
+    });
+    indiv.innerHTML=prods.map(p=>{
+      const remaining=p.remaining;
+      const badgeClass=remaining===0?'out':remaining<=5?'low':'in';
+      const badgeText=remaining===0?'Out of Stock':remaining<=5?`Low: ${remaining}`:`${remaining} left`;
+      const pm=profitMap[p.name.trim().toLowerCase()]||{revenue:0,cogs:0};
+      const profit=pm.revenue-pm.cogs;
+      const margin=pm.revenue>0?((profit/pm.revenue)*100).toFixed(1):0;
+      const profitBarW=Math.min(100,Math.max(0,parseFloat(margin)));
+      return`<div class="prod-stock-card ${remaining===0?'out-stock':remaining<=5?'low-stock':''}">
+        <div class="psc-header"><div class="psc-name">${esc(p.name)}</div><div class="psc-badge ${badgeClass}">${badgeText}</div></div>
+        <div class="psc-grid">
+          <div class="psc-stat"><div class="lbl">Imported</div><div class="val">${p.imported}</div></div>
+          <div class="psc-stat"><div class="lbl">Sold</div><div class="val green">${p.sold}</div></div>
+          <div class="psc-stat"><div class="lbl">Remaining</div><div class="val ${remaining===0?'pink':''}">${remaining}</div></div>
+          <div class="psc-stat"><div class="lbl">Cost/Unit</div><div class="val">${p.currency}${p.costPerUnit.toFixed(2)}</div></div>
+          <div class="psc-stat"><div class="lbl">Revenue</div><div class="val pink">${p.currency}${pm.revenue.toFixed(2)}</div></div>
+          <div class="psc-stat"><div class="lbl">COGS</div><div class="val">${p.currency}${pm.cogs.toFixed(2)}</div></div>
+          <div class="psc-stat"><div class="lbl">Profit</div><div class="val ${profit>=0?'green':'pink'}">${p.currency}${profit.toFixed(2)}</div></div>
+          <div class="psc-stat"><div class="lbl">Margin</div><div class="val ${profit>=0?'green':'pink'}">${margin}%</div></div>
+        </div>
+        <div class="psc-profit-bar"><div class="psc-profit-fill" style="width:${profitBarW}%"></div></div>
+      </div>`;
+    }).join('');
+  }
+
+  // Combined view
+  const combined=document.getElementById('stock-combined');
+  const totalCOGS=sales.reduce((s,sl)=>s+(sl.cogs||0),0);
+  const totalProfit=totalRevenue-totalCOGS;
+  const totalMargin=totalRevenue>0?((totalProfit/totalRevenue)*100).toFixed(1):0;
+  combined.innerHTML=`
+    <div class="fin-card">
+      <h4><i class="fas fa-chart-bar"></i> Combined Overview</h4>
+      <div class="fin-row"><span>Total Products (types)</span><span>${prods.length}</span></div>
+      <div class="fin-row"><span>Total Units Imported</span><span>${totalImported}</span></div>
+      <div class="fin-row"><span>Total Units Sold</span><span style="color:var(--green)">${totalSold}</span></div>
+      <div class="fin-row"><span>Total Units Remaining</span><span style="color:#f59e0b">${totalRemaining}</span></div>
+      <div class="fin-row"><span>Total Revenue</span><span style="color:var(--pink2)">₵${totalRevenue.toFixed(2)}</span></div>
+      <div class="fin-row"><span>Total Cost of Goods Sold</span><span>₵${totalCOGS.toFixed(2)}</span></div>
+      <div class="fin-row profit-row ${totalProfit<0?'loss':''}"><span>Total Profit</span><span>₵${totalProfit.toFixed(2)}</span></div>
+      <div class="fin-row"><span>Overall Margin</span><span style="color:${totalProfit>=0?'var(--green)':'var(--pink2)'}">${totalMargin}%</span></div>
+    </div>`;
+
+  stockView(curStockView);
+}
+
+// ── Populate product dropdown ──
+function populateProductSelect(){
+  const map=buildStockMap();
+  const sel=document.getElementById('s-product');
+  const cur=sel.value;
+  sel.innerHTML='<option value="">-- Select product --</option>';
+  Object.values(map).forEach(p=>{
+    const opt=document.createElement('option');
+    opt.value=p.name;
+    opt.textContent=`${p.name} (${p.remaining} in stock)`;
+    if(p.remaining===0)opt.textContent+=' — OUT';
+    sel.appendChild(opt);
+  });
+  if(cur)sel.value=cur;
+}
+
+function onProductSelect(){
+  const name=document.getElementById('s-product').value;
+  if(!name){document.getElementById('s-instock').value='';document.getElementById('s-costunit').value='';return;}
+  const map=buildStockMap();
+  const key=name.trim().toLowerCase();
+  const p=map[key];
+  if(p){
+    document.getElementById('s-instock').value=p.remaining+' units';
+    document.getElementById('s-costunit').value=p.currency+p.costPerUnit.toFixed(2);
+  }
+  calcSalePreview();
+}
+
+// ── Payment method ──
+function selectPM(pm){
+  curPM=pm;
+  ['momo','bank','cash','credit'].forEach(m=>{
+    document.getElementById('pm-'+m).classList.toggle('active',m===pm);
+  });
+  calcSalePreview();
+}
+
+// ── Sale preview ──
+function calcSalePreview(){
+  const name=document.getElementById('s-product').value;
+  const qty=parseFloat(document.getElementById('s-qty').value)||0;
+  const price=parseFloat(document.getElementById('s-price').value)||0;
+  const revenue=qty*price;
+  let cogs=0;
+  if(name){
+    const map=buildStockMap();
+    const p=map[name.trim().toLowerCase()];
+    if(p)cogs=p.costPerUnit*qty;
+  }
+  const profit=revenue-cogs;
+  const margin=revenue>0?((profit/revenue)*100).toFixed(1):0;
+  document.getElementById('sp-qty').textContent=qty;
+  document.getElementById('sp-price').textContent='₵'+price.toFixed(2);
+  document.getElementById('sp-revenue').textContent='₵'+revenue.toFixed(2);
+  document.getElementById('sp-cogs').textContent='₵'+cogs.toFixed(2);
+  document.getElementById('sp-profit').textContent='₵'+profit.toFixed(2);
+  document.getElementById('sp-profit').style.color=profit>=0?'var(--green)':'var(--pink2)';
+  document.getElementById('sp-margin').textContent=margin+'%';
+}
+
+// ── Record sale ──
+function recordSale(e){
+  e.preventDefault();
+  const name=document.getElementById('s-product').value;
+  if(!name){toast('Select a product.',true);return;}
+  const qty=parseFloat(document.getElementById('s-qty').value)||0;
+  const price=parseFloat(document.getElementById('s-price').value)||0;
+  if(qty<=0){toast('Quantity must be at least 1.',true);return;}
+  const map=buildStockMap();
+  const p=map[name.trim().toLowerCase()];
+  if(!p){toast('Product not found.',true);return;}
+  if(qty>p.remaining){toast(`Only ${p.remaining} units in stock.`,true);return;}
+  const revenue=qty*price;
+  const cogs=p.costPerUnit*qty;
+  const profit=revenue-cogs;
+  sales.unshift({
+    id:Date.now(),
+    date:document.getElementById('s-date').value,
+    product:name,qty,sellingPrice:price,revenue,cogs,profit,
+    pm:curPM,notes:document.getElementById('s-notes').value.trim()
+  });
+  saveSales();
+  toast('Sale recorded!');
+  document.getElementById('sale-form').reset();
+  document.getElementById('s-date').valueAsDate=new Date();
+  document.getElementById('s-instock').value='';
+  document.getElementById('s-costunit').value='';
+  calcSalePreview();
+  renderStock();
+  invTab('stock');
+}
+
+// ── Sales history ──
+function filterSales(){
+  const q=document.getElementById('sale-search').value.toLowerCase();
+  renderSalesHistory(sales.filter(s=>s.product.toLowerCase().includes(q)||(s.notes||'').toLowerCase().includes(q)));
+}
+
+const PM_LABELS={momo:'MoMo',bank:'Bank',cash:'Cash',credit:'Credit'};
+const PM_ICONS={momo:'fa-mobile-alt',bank:'fa-university',cash:'fa-money-bill-wave',credit:'fa-hand-holding-usd'};
+
+function renderSalesHistory(data){
+  data=data||sales;
+  const el=document.getElementById('sales-list');
+  if(!data.length){el.innerHTML='<div class="empty-state"><i class="fas fa-receipt"></i><p>No sales recorded yet.</p></div>';return;}
+  el.innerHTML=data.map(s=>{
+    const prof=s.profit||0;
+    return`<div class="sale-item">
+      <div class="sale-item-top">
+        <div><div class="sale-pname">${esc(s.product)}</div></div>
+        <div style="text-align:right">
+          <div class="sale-amount">₵${(s.revenue||0).toFixed(2)}</div>
+          <div class="sale-profit-tag ${prof<0?'loss':''}">Profit: ₵${prof.toFixed(2)}</div>
+        </div>
+      </div>
+      <div class="sale-meta">
+        <span class="sale-tag">${fmtD(s.date)}</span>
+        <span class="sale-tag">&times;${s.qty} @ ₵${(s.sellingPrice||0).toFixed(2)}</span>
+        <span class="pm-pill ${s.pm||'cash'}"><i class="fas ${PM_ICONS[s.pm]||'fa-money-bill'}"></i> ${PM_LABELS[s.pm]||s.pm}</span>
+        ${s.notes?`<span class="sale-tag" style="color:var(--text2)">${esc(s.notes)}</span>`:''}
+        <button class="sale-del" onclick="deleteSale(${s.id})" title="Delete"><i class="fas fa-times"></i></button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function deleteSale(id){
+  if(!confirm('Delete this sale record?'))return;
+  sales=sales.filter(s=>s.id!==id);
+  saveSales();renderSalesHistory();renderStock();renderFinance();
+  toast('Sale deleted.',true);
+}
+
+// ── Finance summary ──
+function renderFinance(){
+  const el=document.getElementById('finance-content');
+  const totalRevenue=sales.reduce((s,sl)=>s+(sl.revenue||0),0);
+  const totalCOGS=sales.reduce((s,sl)=>s+(sl.cogs||0),0);
+  const totalProfit=totalRevenue-totalCOGS;
+  const totalMargin=totalRevenue>0?((totalProfit/totalRevenue)*100).toFixed(1):0;
+
+  // Payment breakdown
+  const pmTotals={momo:0,bank:0,cash:0,credit:0};
+  sales.forEach(sl=>{pmTotals[sl.pm||'cash']+=(sl.revenue||0);});
+  const pmMax=Math.max(...Object.values(pmTotals),1);
+
+  el.innerHTML=`
+    <div class="fin-card">
+      <h4><i class="fas fa-chart-line"></i> Profit & Loss</h4>
+      <div class="fin-row"><span>Total Revenue</span><span style="color:var(--pink2)">₵${totalRevenue.toFixed(2)}</span></div>
+      <div class="fin-row"><span>Cost of Goods Sold</span><span>₵${totalCOGS.toFixed(2)}</span></div>
+      <div class="fin-row profit-row ${totalProfit<0?'loss':''}"><span>Gross Profit</span><span>₵${totalProfit.toFixed(2)}</span></div>
+      <div class="fin-row"><span>Profit Margin</span><span style="color:${totalProfit>=0?'var(--green)':'var(--pink2)'}">${totalMargin}%</span></div>
+      <div class="fin-row"><span>Total Sales Transactions</span><span>${sales.length}</span></div>
+    </div>
+    <div class="fin-card">
+      <h4><i class="fas fa-wallet"></i> Payment Methods Received</h4>
+      <div class="pm-bar-wrap">
+        <div class="pm-bar-row"><div class="pm-bar-label">Mobile Money</div><div class="pm-bar-track"><div class="pm-bar-fill momo" style="width:${(pmTotals.momo/pmMax*100).toFixed(1)}%"></div></div><div class="pm-bar-amt">₵${pmTotals.momo.toFixed(2)}</div></div>
+        <div class="pm-bar-row"><div class="pm-bar-label">Bank Transfer</div><div class="pm-bar-track"><div class="pm-bar-fill bank" style="width:${(pmTotals.bank/pmMax*100).toFixed(1)}%"></div></div><div class="pm-bar-amt">₵${pmTotals.bank.toFixed(2)}</div></div>
+        <div class="pm-bar-row"><div class="pm-bar-label">Cash</div><div class="pm-bar-track"><div class="pm-bar-fill cash" style="width:${(pmTotals.cash/pmMax*100).toFixed(1)}%"></div></div><div class="pm-bar-amt">₵${pmTotals.cash.toFixed(2)}</div></div>
+        <div class="pm-bar-row"><div class="pm-bar-label">Credit</div><div class="pm-bar-track"><div class="pm-bar-fill credit" style="width:${(pmTotals.credit/pmMax*100).toFixed(1)}%"></div></div><div class="pm-bar-amt">₵${pmTotals.credit.toFixed(2)}</div></div>
+      </div>
+      <div class="fin-row total"><span>TOTAL RECEIVED</span><span>₵${totalRevenue.toFixed(2)}</span></div>
+    </div>
+    <div class="fin-card">
+      <h4><i class="fas fa-boxes"></i> Stock Summary</h4>
+      ${(()=>{const map=buildStockMap();const prods=Object.values(map);const low=prods.filter(p=>p.remaining>0&&p.remaining<=5);const out=prods.filter(p=>p.remaining===0);return`
+      <div class="fin-row"><span>Product Types</span><span>${prods.length}</span></div>
+      <div class="fin-row"><span>Low Stock Items (≤5)</span><span style="color:#f59e0b">${low.length}</span></div>
+      <div class="fin-row"><span>Out of Stock</span><span style="color:var(--pink2)">${out.length}</span></div>
+      ${out.length?`<div style="margin-top:8px;font-size:12px;color:var(--text3);">Out: ${out.map(p=>`<span style="color:var(--pink2)">${esc(p.name)}</span>`).join(', ')}</div>`:''}
+      ${low.length?`<div style="margin-top:6px;font-size:12px;color:var(--text3);">Low: ${low.map(p=>`<span style="color:#f59e0b">${esc(p.name)} (${p.remaining})</span>`).join(', ')}</div>`:''}
+      `;})()}
+    </div>
+  `;
+}
 
 // Keyboard PIN
 document.addEventListener('keydown',e=>{if(document.getElementById('login-screen').style.display==='none')return;if(/^[0-9]$/.test(e.key))pinKey(e.key);else if(e.key==='Backspace')pinDel();});
